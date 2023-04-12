@@ -1,0 +1,19 @@
+.nav {
+    font-size: 20px;
+    background-color: #c8cbcf;
+    padding: 22px 0;
+
+}
+
+.nav-item {
+    margin-right: 30px;
+    text-transform: lowercase;
+}
+
+.nav-item:last-child{
+    margin-right: 0px;
+}
+
+.nav-link {
+}
+

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href=" {% static '/css/sign.css' %}">
+{% endblock %}
+
+{% block content %}
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card border-0 shadow rounded-3 my-5">
+                    <div class="card-body p-4 p-sm-5">
+                        <h5 class="card-title text-center mb-4 fw-light fs-5">Sign up</h5>
+                        <form method="post">
+                            {% csrf_token %}
+
+
+                            <p>
+                                {{ form.username }}
+                                {{ form.username.errors }}
+                            </p>
+
+                            <p>
+                                {{ form.email }}
+                                {{ form.email.errors }}
+                            </p>
+
+                            <p>
+                                {{ form.password1 }}
+                            </p>
+
+                            <p>
+                                {{ form.password2 }}
+                                {{ form.non_field_errors }}
+                            </p>
+
+
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign in
+                                </button>
+                            </div>
+
+                            <div class="text-center mt-3">
+                                <a href="{% url 'user:signin_url' %}">Є обліковий запис? Увійти</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <link rel="stylesheet" href=" {% static '/css/staff_model_list.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+
+        <h2 class="text-center m-4">Категорії</h2>
+
+        <table class="table align-middle mb-0 bg-light">
+            <thead class="bg-info text-center">
+            <tr>
+                <th>Picture</th>
+                <th>Slug</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for category in object_list %}
+                <tr class="text-center">
+                    <td class="align-middle">
+                        <div class="photo-container">
+                            <img class="photo" src="{{ category.img.url }}" alt="{{ category.img.url }}"/>
+                        </div>
+                    </td>
+                    <td class="align-middle">
+                        <p class="fw-normal mb-1">{{ category.slug }}</p>
+                    </td>
+                    <td class="align-middle">
+                        <p class="fw-normal mb-1">{{ category.name }}</p>
+                    </td>
+                    <td class="align-middle">
+                        <a href="{% url 'catalog:category_update_url' category_slug=category.slug %}"
+                           class="btn btn-link btn-sm btn-rounded">
+                            Update
+                        </a>
+
+                        <a href="{% url 'catalog:category_delete_url' category_slug=category.slug %}"
+                           class="btn btn-link btn-sm btn-rounded">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+            <a href="{% url 'catalog:category_create_url' %}"
+               class="btn btn-link btn-sm btn-rounded">
+                Create new
+            </a>
+
+
+            </tbody>
+        </table>
+
+        <div class="m-3">
+            {% include "catalog/_pagination.html" %}
+        </div>
+
+    </div>
+
+{% endblock %}

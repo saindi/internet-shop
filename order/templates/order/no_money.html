@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href=" {% static '/css/sign.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card border-0 shadow rounded-3 my-5">
+                    <div class="card-body p-4 p-sm-5">
+
+                            <h4 class="mb-2 text-center">Для покупки недостатньо коштів</h4>
+
+                            <a href="#" class="btn btn-success mb-2">Поповнити рахунок</a>
+
+                            <a href="{% url 'catalog:home_url' %}" class="btn btn-primary">Назад</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
+
+
+
+

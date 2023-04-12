@@ -1,0 +1,29 @@
+<div class="container-fluid p-0">
+    <ul class="nav justify-content-center navbar-dark ">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'catalog:category_list_url' %}">Каталог</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'cart:detail' %}">Кошик</a>
+        </li>
+
+        {% if user.is_authenticated %}
+            <li class="nav-item ">
+                <a class="nav-link color-white" href="{% url 'user:profile_url' %}">{{ user.username }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'user:logout_url' %}">Logout</a>
+            </li>
+
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'user:signin_url' %}">Sign in</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'user:signup_url' %}">Sign up</a>
+            </li>
+
+        {% endif %}
+    </ul>
+</div>

@@ -1,0 +1,56 @@
+<div class="container">
+    {% for order in orders %}
+        <div class="mb-4 orders">
+
+            <h5 class="mb-3 inline-group">{{ order.order }}
+                {% if order.order.status == 1 %}
+                    <span class="badge badge-info rounded-pill d-inline">Прийнятий</span>
+                    <a href="{% url 'order:cancellation_create' order_id=order.order.id %}"
+                           class="btn btn-danger btn-sm">
+                            Скасувати
+                        </a>
+                {% endif %}
+
+                {% if order.order.status == 2 %}
+                    <span class="badge badge-success rounded-pill d-inline">Виконаний</span>
+                {% endif %}
+
+                {% if order.order.status == 3 %}
+                    <span class="badge badge-danger rounded-pill d-inline">Скасовано</span>
+                {% endif %}
+
+                {% if order.order.status == 4 %}
+                    <span class="badge badge-warning rounded-pill d-inline">Повернення</span>
+                {% endif %}
+
+            </h5>
+
+            <table class="table align-middle mb-0 bg-light">
+                <tbody>
+
+                {% for product in order.products %}
+                    <tr>
+                        <td class="text-center photo-container">
+                            <img class="photo" src="{{ product.product.img.url }}" alt="{{ product.product.img.url }}"/>
+                        </td>
+                        <td class="align-middle">{{ product.product.name }}</td>
+
+                        <td class="align-middle">Ціна:<br>{{ product.price }} грн</td>
+                        <td class="align-middle">Кількість:<br>{{ product.quantity }}</td>
+                        <td class="align-middle">Вартість:<br>{{ product.get_cost }} грн</td>
+                    </tr>
+
+                {% endfor %}
+
+                <tr class="">
+                    <td class="align-middle">Total</td>
+                    <td colspan="3"></td>
+                    <td class="align-middle">{{ order.order.get_total_cost }} грн</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+</div>
+

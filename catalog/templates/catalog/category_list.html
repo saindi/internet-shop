@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static '/css/catalog.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h2 class="text-center m-4 ">
+        Каталог
+    </h2>
+
+        <div class="container">
+            <div class="row">
+
+                {% for category in categories %}
+                    <div class="col-xl-4 col-md-6">
+                        <a href="{% url 'catalog:product_list_url' category_slug=category.slug %}" class="">
+
+                            <div class="shop">
+                                <div class="shop-img product-photo-container">
+                                    <img class="product-photo" src="{{ category.img.url }}" alt="{{ category.img.url }}">
+                                </div>
+                                <div class="shop-body">
+                                    <h3>{{ category.name }}</h3>
+                                </div>
+                            </div>
+
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+{% endblock %}

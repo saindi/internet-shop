@@ -1,0 +1,28 @@
+.right-col {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+.input-group {
+    max-width: 520px;
+}
+
+.label {
+    margin: auto auto;
+    width: 100px;
+}
+
+.item-btn {
+    margin-left: 95px;
+}
+
+.select-img {
+    margin-left: 120px;
+}
+
+.errorlist {
+    list-style-type: none;
+    padding: 0;
+    color: #ff0000;
+    text-align: center;
+}

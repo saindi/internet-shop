@@ -1,0 +1,30 @@
+.card {
+    width: 16rem;
+    border: 0;
+}
+
+.card:hover{
+    background-color: #E4E7ED;
+    transition: 0.3s all;
+}
+
+.photo-container {
+    height: 300px;
+    margin: 15px;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.btn-filter {
+    background-color: #4e555b;
+}
+
+@media screen and (max-width: 576px) {
+    .card {
+        margin: 0 auto;
+    }
+}
