@@ -18,20 +18,16 @@ def order_create_view(request):
         return HttpResponseRedirect(reverse_lazy('cart:detail'))
 
     if cart.get_total_price() > request.user.money:
-        # Очистка корзины
         cart.clear()
 
         return render(request, 'order/no_money.html')
 
-    # Проверка количества товара
     for item in cart:
         if item["quantity"] > item["product"].amount:
-            # Очистка корзины
             cart.clear()
 
             return render(request, 'order/no_product_amount.html')
 
-    # Уменьшение количество купленного товара
     for item in cart:
         item["product"].amount -= item["quantity"]
         item["product"].save()
@@ -49,11 +45,9 @@ def order_create_view(request):
             quantity=item['quantity']
         )
 
-    # Снимает деньги
     request.user.money -= cart.get_total_price()
     request.user.save()
 
-    # Очистка корзины
     cart.clear()
 
     return HttpResponseRedirect(reverse_lazy('user:profile_url'))

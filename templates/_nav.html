@@ -1,11 +1,11 @@
 <div class="container-fluid p-0">
     <ul class="nav justify-content-center navbar-dark ">
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'catalog:category_list_url' %}">Каталог</a>
+            <a class="nav-link" href="{% url 'catalog:category_list_url' %}">Catalog</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'cart:detail' %}">Кошик</a>
+            <a class="nav-link" href="{% url 'cart:detail' %}">Basket</a>
         </li>
 
         {% if user.is_authenticated %}

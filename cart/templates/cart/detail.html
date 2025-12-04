@@ -10,7 +10,7 @@
 {% block content %}
     <div class="container">
 
-        <h2 class="text-center m-4">Кошик</h2>
+        <h2 class="text-center m-4">Basket</h2>
 
         <table class="table align-middle mb-0 bg-light">
             <thead class="bg-info text-center">
@@ -56,7 +56,7 @@
             <tr class="total">
                 <td class="text-center">Total</td>
                 <td colspan="4"></td>
-                <td class="text-center">{{ cart.get_total_price }} грн</td>
+                <td class="text-center">{{ cart.get_total_price }} UAH</td>
             </tr>
 
             <a href="{% url "catalog:category_list_url" %}" class="mr-2">Continue shopping</a>

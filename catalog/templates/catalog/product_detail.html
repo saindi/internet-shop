@@ -23,12 +23,12 @@
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 p-2">
                 <div class="text-justify mb-2 mt-2"> {{ product.description }}</div>
 
-                <h2 class="font-weight-normal mb-3 mt-3">{{ product.price }} грн</h2>
+                <h2 class="font-weight-normal mb-3 mt-3">{{ product.price }} UAH</h2>
 
 
                 {% if product.amount == 0 or product.available == 0 %}
-                    <p class="card-text text-danger">Немає в наявності</p>
-                    <a href="#" class="btn btn-primary btn-lg disabled">Купить</a>
+                    <p class="card-text text-danger">Not available</p>
+                    <a href="#" class="btn btn-primary btn-lg disabled">Buy</a>
 
 
                 {% else %}
